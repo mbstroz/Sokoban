@@ -183,8 +183,8 @@ nav#global ul li #subMenu li a {
 
 /* MAIN */
 #content {
-	width: 80%;
-	margin-right: 30px;
+	width: 75%;
+	margin-right: 0px;
 	float: left;
 }
 article {
