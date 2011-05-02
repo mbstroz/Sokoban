@@ -41,6 +41,10 @@
 		<?php include 'templates/header.tpl'; ?>
  
 <div id="content" class="container_12">
+<?php
+	list($view,$id,$action) = explode("/", $Painfree->route);
+	if ( $view == 'main' ) {
+?>
         	<div id="left" class="grid_8">
 			<?php include 'templates/primary/base.tpl'; ?>
 		</div>
@@ -48,6 +52,15 @@
 		<div id="right" class="grid_3 push_1">
 			<?php include 'templates/secondary/base.tpl'; ?>
 		</div>
+<?php
+	} else {
+?>
+		<div id="left" class="grid_12">
+			<?php include 'templates/primary/base.tpl'; ?>
+		</div>
+<?php
+	}
+?>
         
         </div>
 
