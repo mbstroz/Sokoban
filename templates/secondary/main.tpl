@@ -11,7 +11,7 @@
                       <h1>Quick Links</h1>
                       <ul class="links">
                           <li><a href="orders">Order Form</a></li>
-                          <li><a href="vendors">Vendor List</a></li>
+                          <li><a href="vendor">Vendor List</a></li>
 						  <li><a href="reports">Progress Reports</a></li>
                       </ul>
                   </nav>

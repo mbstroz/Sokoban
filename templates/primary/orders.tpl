@@ -27,7 +27,7 @@
 						}
 					</style>
 					
-					<script type="text/javascript" src="js/ext-4.0.0/bootstrap.js"></script>
+					<script type="text/javascript" src="js/ext-4.0.0/ext-all.js"></script>
 					<script type="text/javascript" src="js/ext-4.0.0/examples/shared/examples.js	"></script>
 
 					<!-- Shared -->
@@ -47,7 +47,7 @@
 							var formPanel = Ext.create('Ext.form.Panel', {
 								frame: true,
 								region: 'center',
-								title: 'Form Fields',
+								title: 'Order Form 1',
 								width: 340,
 								bodyPadding: 5,
 
@@ -154,6 +154,153 @@
 								}]
 				
 							});
+							
+							/**
+							 * Form and form widgets
+							 */
+							var formPanel2 = Ext.create('Ext.form.Panel', {
+							
+								id   : 'form-widgets',
+								title: 'Order Form 2',
+
+								x: 0, y: 0,
+
+								width : 630,
+								height: 700,
+								frame: true,
+										
+								tools: [
+									{type:'toggle'},
+									{type:'close'},
+									{type:'minimize'},
+									{type:'maximize'},
+									{type:'restore'},
+									{type:'gear'},
+									{type:'pin'},
+									{type:'unpin'},
+									{type:'right'},
+									{type:'left'},
+									{type:'up'},
+									{type:'down'},
+									{type:'refresh'},
+									{type:'minus'},
+									{type:'plus'},
+									{type:'help'},
+									{type:'search'},
+									{type:'save'},
+									{type:'print'}
+								],
+
+								bodyPadding: '10 20',
+
+								defaults: {
+									anchor    : '98%',
+									msgTarget : 'side',
+									allowBlank: false
+								},
+
+								items: [
+									{
+										xtype: 'label',
+										text : 'Plain Label'
+									},
+									{
+										fieldLabel: 'TextField',
+										xtype     : 'textfield',
+										name      : 'someField',
+										emptyText : 'Enter a value'
+									},
+									{
+										fieldLabel: 'ComboBox',
+										xtype: 'combo',
+										store: ['Foo', 'Bar']
+									},
+									{
+										fieldLabel: 'DateField',
+										xtype     : 'datefield',
+										name      : 'date'
+									},
+									{
+										fieldLabel: 'TimeField',
+										name: 'time',
+										xtype: 'timefield'
+									},
+									{
+										fieldLabel: 'NumberField',
+										xtype     : 'numberfield',
+										name      : 'number',
+										emptyText : '(This field is optional)',
+										allowBlank: true
+									},
+									{
+										fieldLabel: 'TextArea',
+										xtype     : 'textareafield',
+										name      : 'message',
+										cls       : 'x-form-valid',
+										value     : 'This field is hard-coded to have the "valid" style (it will require some code changes to add/remove this style dynamically)'
+									},
+									{
+										fieldLabel: 'Checkboxes',
+										xtype: 'checkboxgroup',
+										columns: [100,100],
+										items: [{boxLabel: 'Foo', checked: true},{boxLabel: 'Bar'}]
+									},
+									{
+										fieldLabel: 'Radios',
+										xtype: 'radiogroup',
+										columns: [100,100],
+										items: [{boxLabel: 'Foo', checked: true, name: 'radios'},{boxLabel: 'Bar', name: 'radios'}]
+									},
+									{
+										hideLabel   : true,
+										id          : 'htmleditor',
+										xtype       : 'htmleditor',
+										name        : 'html',
+										enableColors: false,
+										value       : 'Mouse over toolbar for tooltips.<br /><br />The HTMLEditor IFrame requires a refresh between a stylesheet switch to get accurate colors.',
+										height      : 110
+									},
+									{
+										xtype : 'fieldset',
+										title : 'Plain Fieldset'
+									},
+									{
+										xtype      : 'fieldset',
+										title      : 'Collapsible Fieldset',
+										collapsible: true
+									},
+									{
+										xtype         : 'fieldset',
+										title         : 'Checkbox Fieldset',
+										checkboxToggle: true
+									}
+								],
+
+								buttons: [
+									{
+										text   :'Toggle Enabled',
+										handler: function() {
+											this.up('form').items.each(function(item) {
+												item.setDisabled(!item.disabled);
+											});
+										}
+									},
+									{
+										text   : 'Reset Form',
+										handler: function() {
+											Ext.getCmp('form-widgets').getForm().reset();
+										}
+									},
+									{
+										text   : 'Validate',
+										handler: function() {
+											Ext.getCmp('form-widgets').getForm().isValid();
+										}
+									}
+								]
+							});
+
+							
 
 						   // NOTE: This is an example showing simple state management. During development,
 						   // it is generally best to disable state management as dynamically-generated ids
@@ -170,6 +317,7 @@
 									title: 'Navigation',
 									width: 150
 									// could use a TreePanel or AccordionLayout for navigational items
+									
 								}, {
 									region: 'south',
 									title: 'Activity',
@@ -179,20 +327,18 @@
 									height: 100,
 									minHeight: 100
 								},{
-									id: 'myTab',
+									id: 'tabpanel',
 									region: 'center',
 									xtype: 'tabpanel', // TabPanel itself has no title
 									activeTab: 0,      // First tab active by default
-									items: {
-										title: 'Orders Form',
-									}
+									items: [
+											formPanel,
+											formPanel2
+									]
 								}]
 							});
 						});
-						var myTabPanel = Ext.getCmp('myTab');
 						
-						myTabPanel.add(formPanel);
-						myTabPanel.setActiveTab(formPanel);
 					</script>
 					<!-- Example -->
 					
