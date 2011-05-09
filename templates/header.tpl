@@ -1,19 +1,12 @@
         
 	<div id="header" class="container_12">
-        	<div id="head" class="grid_12">
-        	        <header>
-				<hgroup>
-					<h2>NSAG SOKOBAN</h2>
-				</hgroup>
-			</header>
-		</div>
 		<div class="grid_12">        
 			<div id="menu">
-				<nav id="global">
+				<nav id="global"><span style="margin-left:25px;margin-top:10px;float:left;color:#fff;font-weight:bold;font-size:14px;">NSAG SOKOBAN</span>
 					<ul>
-						<li><a href="/Sokoban" name="home">HOME</a></li>
-						<li><a href="#admin" name="admin">ADMIN</a></li>
-						<li><a href="#about" name="modal">ABOUT</a></li>
+						<li><a href="/" name="home">HOME</a></li>
+						<li><a href="admin" name="admin">ADMIN</a></li>
+						<li><a href="#" name="modal">ABOUT</a></li>
 					</ul>
 				</nav>
 			</div>
